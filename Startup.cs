@@ -70,6 +70,8 @@ namespace DotnetContractors
             services.AddTransient<JobsService>();
             services.AddTransient<JobsContractorsService>();
             services.AddTransient<ContractorsService>();
+            services.AddTransient<ProfilesRepository>();
+            services.AddTransient<ProfilesService>();
         }
 
         private IDbConnection CreateDbConnection()
