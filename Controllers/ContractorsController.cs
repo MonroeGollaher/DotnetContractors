@@ -35,5 +35,18 @@ namespace DotnetContractors.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<Contractor>> GetAction()
+        {
+            try
+            {
+                return Ok(_cs.Get());
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

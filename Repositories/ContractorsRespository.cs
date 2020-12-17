@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using Dapper;
 using DotnetContractors.Models;
@@ -8,7 +9,7 @@ namespace DotnetContractors.Repositories
   public class ContractorsRespository
   {
     private readonly IDbConnection _db;
-    private readonly string populateCreator = "SELECT contractor.*, profile.* FROM contractors contractor INNER JOIN profiles profile ON contractor.creatorId = profile.id ";
+    private readonly string populateCreator = "SELECT contractor.*, profile.* FROM contractors contractor INNER JOIN profiles profile ON contractor.contractorId = profile.id ";
 
     public ContractorsRespository(IDbConnection db)
     {
@@ -24,6 +25,12 @@ namespace DotnetContractors.Repositories
         (@Name, @Wage, @ContractorId);
         SELECT LAST_INSERT_ID();";
       return _db.ExecuteScalar<int>(sql, newContractor);
+    }
+
+    public IEnumerable<Contractor> Get()
+    {
+      string sql = populateCreator;
+      return _db.Query<Contractor, Profile, Contractor>(sql, (contractor, profile) => { contractor.Creator = profile; return contractor; }, splitOn: "id");
     }
   }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DotnetContractors.Models;
 using DotnetContractors.Repositories;
 
@@ -16,6 +17,11 @@ namespace DotnetContractors.Services
     {
       newContractor.Id = _repo.Create(newContractor);
       return newContractor;
+    }
+
+    public IEnumerable<Contractor> Get()
+    {
+      return _repo.Get();
     }
   }
 }
