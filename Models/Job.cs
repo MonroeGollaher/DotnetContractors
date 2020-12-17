@@ -7,4 +7,8 @@ namespace DotnetContractors.Models
         public string Location { get; set; }
         public int Budget { get; set; }
     }
+    public class ContractorJobViewModel : Contractor
+    {
+        public int ContractorJobId { get; set; }
+    }
 }

@@ -1,6 +1,6 @@
 namespace DotnetContractors.Repositories
 {
-    public class JobsContractorsRepository
+    public class ContractorJobsRepository
     {
         
     }

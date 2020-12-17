@@ -64,11 +64,11 @@ namespace DotnetContractors
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DotnetContractors", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            services.AddTransient<JobsContractorsRepository>();
+            services.AddTransient<ContractorJobsRepository>();
             services.AddTransient<ContractorsRespository>();
             services.AddTransient<JobsRepository>();
             services.AddTransient<JobsService>();
-            services.AddTransient<JobsContractorsService>();
+            services.AddTransient<ContractorJobsService>();
             services.AddTransient<ContractorsService>();
             services.AddTransient<ProfilesRepository>();
             services.AddTransient<ProfilesService>();

@@ -1,6 +1,6 @@
 namespace DotnetContractors.Services
 {
-    public class JobsContractorsService
+    public class ContractorJobsService
     {
         
     }

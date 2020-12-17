@@ -1,6 +1,6 @@
 namespace DotnetContractors.Controllers
 {
-    public class JobsContractorsController
+    public class ContractorJobsController
     {
         
     }
