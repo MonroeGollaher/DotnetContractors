@@ -16,10 +16,26 @@
 --   REFERENCES profiles(id)
 --   ON DELETE CASCADE
 -- )
-CREATE TABLE jobs (
-  id INT AUTO_INCREMENT NOT NULL,
-  title VARCHAR(255) NOT NULL,
-  location VARCHAR(255) NOT NULL,
-  budget INT NOT NULL,
-  PRIMARY KEY (id)
+-- CREATE TABLE jobs (
+--   id INT AUTO_INCREMENT NOT NULL,
+--   title VARCHAR(255) NOT NULL,
+--   location VARCHAR(255) NOT NULL,
+--   budget INT NOT NULL,
+--   PRIMARY KEY (id)
+-- )
+CREATE TABLE contractorjobs (
+  id int NOT NULL AUTO_INCREMENT,
+  jobId INT,
+  contractorId INT,
+  creatorId VARCHAR(255) NOT NULL,
+
+  PRIMARY KEY (id),
+
+  FOREIGN KEY (jobId)
+  REFERENCES jobs (id)
+  ON DELETE CASCADE,
+
+  FOREIGN KEY (creatorId)
+  REFERENCES profiles (id)
+  ON DELETE CASCADE
 )
